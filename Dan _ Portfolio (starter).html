@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dan | Portfolio</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1c1c1a;--muted:#6b6b66;--card:#fff;--line:#e4e4de;--accent:#1f5eff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121211;--fg:#f0f0ea;--muted:#9a9a92;--card:#1b1b19;--line:#2c2c29;--accent:#7aa2ff}}
+:root[data-theme="dark"]{--bg:#121211;--fg:#f0f0ea;--muted:#9a9a92;--card:#1b1b19;--line:#2c2c29;--accent:#7aa2ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:18px;padding:12px 20px;overflow-x:auto;z-index:2}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap}
+nav a:hover{color:var(--accent)}
+main{max-width:860px;margin:0 auto;padding:0 20px 60px}
+section{padding:48px 0 8px}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.15;margin:60px 0 12px}
+h2{font-size:1.4rem;margin:0 0 18px}
+p{margin:0 0 12px}
+.lead{color:var(--muted);font-size:1.1rem;max-width:60ch}
+.btn{display:inline-block;margin:8px 8px 0 0;padding:10px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-size:15px}
+.btn.alt{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 12px;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+.card h3{margin:0 0 6px;font-size:1.1rem}
+.card small{color:var(--muted)}
+.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.photo{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,var(--line),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#photography">Photography</a><a href="#experience">Education</a><a href="#contact">Contact</a></nav>
+<main>
+<header>
+<h1>Hi, I'm Dan.</h1>
+<p class="lead">Computer science graduate with a passion for [your focus, e.g. data, software and how cities move]. I build things that are [clear, efficient, useful].</p>
+<a class="btn" href="#projects">See my work</a><a class="btn alt" href="#contact">Get in touch</a>
+</header>
+
+<section id="about">
+<h2>About me</h2>
+<p>[Two or three sentences: who you are, what you studied, what you want to do next, and what drives you. Keep it human.]</p>
+<h2 style="margin-top:28px">Core skills</h2>
+<ul class="tags">
+<li>Python</li><li>Algorithms</li><li>Data analysis</li><li>Git</li><li>[Add yours]</li><li>Photography</li><li>Problem solving</li>
+</ul>
+</section>
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<article class="card">
+<h3>Chess Engine</h3>
+<p>[What it does, e.g. search algorithm, evaluation approach, language used, strength achieved.]</p>
+<p><small>Tech: [e.g. C++ / Python] &middot; <a href="#" style="color:var(--accent)">GitHub</a></small></p>
+</article>
+<article class="card">
+<h3>London Transport Project</h3>
+<p>[The question you asked, the data you used, your method, and what you found or recommended.]</p>
+<p><small>Tech: [tools] &middot; <a href="#" style="color:var(--accent)">Read more</a></small></p>
+</article>
+</div>
+</section>
+
+<section id="photography">
+<h2>Photography</h2>
+<p>[One line on your style or what you like to shoot.]</p>
+<div class="photos">
+<!-- Replace each placeholder with: <div class="photo"><img src="photos/your-image.jpg" alt="Describe the photo"></div> -->
+<div class="photo">Photo 1</div><div class="photo">Photo 2</div><div class="photo">Photo 3</div>
+<div class="photo">Photo 4</div><div class="photo">Photo 5</div><div class="photo">Photo 6</div>
+</div>
+</section>
+
+<section id="experience">
+<h2>Education &amp; experience</h2>
+<div class="card">
+<h3>BSc Computer Science</h3>
+<p><small>[University] &middot; [Years]</small></p>
+<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
+</div>
+<p style="margin-top:14px"><a class="btn alt" href="#">Download CV (PDF)</a></p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Open to opportunities and conversations. The best way to reach me is by email.</p>
+<a class="btn" href="mailto:you@example.com">you@example.com</a>
+<a class="btn alt" href="#">LinkedIn</a><a class="btn alt" href="#">GitHub</a>
+</section>
+</main>
+<footer>&copy; Dan</footer>
+</body>
+</html>
