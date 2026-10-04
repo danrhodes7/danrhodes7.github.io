@@ -1,134 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Daniel Rhodes | Portfolio</title>
-<style>
-:root{--bg:#fafaf7;--fg:#1c1c1a;--muted:#6b6b66;--card:#fff;--line:#e4e4de;--accent:#1f5eff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121211;--fg:#f0f0ea;--muted:#9a9a92;--card:#1b1b19;--line:#2c2c29;--accent:#7aa2ff}}
-:root[data-theme="dark"]{--bg:#121211;--fg:#f0f0ea;--muted:#9a9a92;--card:#1b1b19;--line:#2c2c29;--accent:#7aa2ff}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:18px;padding:12px 20px;overflow-x:auto;z-index:2}
-nav a{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap}
-nav a:hover{color:var(--accent)}
-main{max-width:860px;margin:0 auto;padding:0 20px 60px}
-section{padding:48px 0 8px}
-h1{font-size:clamp(2rem,6vw,3rem);line-height:1.15;margin:60px 0 12px}
-h2{font-size:1.4rem;margin:0 0 18px}
-p{margin:0 0 12px}
-.lead{color:var(--muted);font-size:1.1rem;max-width:60ch}
-.btn{display:inline-block;margin:8px 8px 0 0;padding:10px 18px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-size:15px}
-.btn.alt{background:transparent;color:var(--fg);border:1px solid var(--line)}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.tags li{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 12px;font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
-.card h3{margin:0 0 6px;font-size:1.1rem}
-.card small{color:var(--muted)}
-.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
-.photo{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,var(--line),var(--card));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover}
-footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--muted);font-size:14px}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Daniel Rhodes | Portfolio</title>
+    <style>
+        :root {
+            --bg: #fafaf7;
+            --fg: #1c1c1a;
+            --muted: #6b6b66;
+            --card: #fff;
+            --line: #e4e4de;
+            --accent: #1f5eff;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #121211;
+                --fg: #f0f0ea;
+                --muted: #9a9a92;
+                --card: #1b1b19;
+                --line: #2c2c29;
+                --accent: #7aa2ff
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #121211;
+            --fg: #f0f0ea;
+            --muted: #9a9a92;
+            --card: #1b1b19;
+            --line: #2c2c29;
+            --accent: #7aa2ff
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+            scroll-behavior: smooth
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+        }
+
+        nav {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            background: var(--bg);
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            gap: 18px;
+            padding: 12px 20px;
+            overflow-x: auto;
+            z-index: 2
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap
+        }
+
+        nav a:hover {
+            color: var(--accent)
+        }
+
+        main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 20px 60px
+        }
+
+        section {
+            padding: 48px 0 8px
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            line-height: 1.15;
+            margin: 60px 0 12px
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin: 0 0 18px
+        }
+
+        p {
+            margin: 0 0 12px
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 60ch
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 8px 8px 0 0;
+            padding: 10px 18px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px
+        }
+
+        .btn.alt {
+            background: transparent;
+            color: var(--fg);
+            border: 1px solid var(--line)
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .tags li {
+            border: 1px solid var(--line);
+            background: var(--card);
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 14px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 20px
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 1.1rem
+        }
+
+        .card small {
+            color: var(--muted)
+        }
+
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px
+        }
+
+        .photo {
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--line), var(--card));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 13px;
+            overflow: hidden
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 24px 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+    </style>
 </head>
+
 <body>
-<nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#photography">Photography</a><a href="#contact">Contact</a></nav>
-<main>
-<header>
-<h1>I am a transport transgender . (WIP)</h1>
-<p class="lead"></p>
-<a class="btn" href="#projects">See my work</a><a class="btn alt" href="#contact">Get in touch</a>
-<p style="margin-top:14px"><a class="btn alt" href="docs/daniel-rhodes-cv.pdf" target="_blank" rel="noopener">Check out my CV! (PDF)</a></p>
-</header>
+    <nav><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a
+            href="#education">Education</a><a href="#photography">Photography</a><a href="#contact">Contact</a></nav>
+    <main>
+        <header>
+            <h1>I am a transport nerd. (WIP)</h1>
+            <p class="lead">Studying Transport Planning, after having recently graduated from Electrical Engineering. I
+                am curious, always seeking to understand how things work, and how to design better cities for everyone.
+            </p>
+            <a class="btn" href="#projects">See my work</a><a class="btn alt" href="#contact">Get in touch</a>
+            <p style="margin-top:14px"><a class="btn alt" href="docs/daniel-rhodes-cv.pdf" target="_blank"
+                    rel="noopener">Check out my CV! (PDF)</a></p>
+        </header>
 
-<section id="about">
-<h2>About me</h2>
-<p>[Two or three sentences: who you are, what you studied, what you want to do next, and what drives you. Keep it human.]</p>
-<h2 style="margin-top:28px">Core skills</h2>
-<ul class="tags">
-<li>Python</li><li>Algorithms</li><li>Data analysis</li><li>Git</li><li>[Add yours]</li><li>Photography</li><li>Problem solving</li>
-</ul>
-</section>
+        <section id="about">
+            <h2>About me</h2>
+            <p>After finishing my Transport Planning masters, I would like a career in urban planning, where street
+                design particularly fascinates me. I am always looking for ways to improve our cities and our public
+                transport networks.</p>
+            <h2 style="margin-top:28px">Core skills</h2>
 
-<section id="projects">
-<h2>Projects</h2>
-<div class="grid">
-<article class="card">
-<h3>Analysing London's Train Network</h3>
-<p>[The question you asked, the data you used, your method, and what you found or recommended.]</p>
-<p><small>Tech: [tools] &middot; <a href="#" style="color:var(--accent)">Read more</a></small></p>
-<a href="docs/urop-poster.pdf" target="_blank" rel="noopener" style="color:var(--accent)">View the poster (PDF)</a>
-</article>
-<article class="card">
-<h3>Creating a Chess Engine for Endgame Positions</h3>
-<p>[Project title, the problem you tackled, your approach, and your main result.]</p>
-<p><small>
-<a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener" style="color:var(--accent)">Read the report (PDF)</a> &middot;
-<a href="docs/fyp-poster.pdf" target="_blank" rel="noopener" style="color:var(--accent)">View the poster (PDF)</a>
-</small></p>
-</article>
-</div>
-</section>
+            <div class="skill-group">
+                <h3>Technical</h3>
+                <ul class="tags">
+                    <li>Python</li>
+                    <li>C++</li>
+                    <li>MATLAB</li>
+                    <li>html</li>
+                    <li>Excel</li>
+                    <li>Data analysis</li>
+                    <li>Mathematics</li>
+                    <li>Problem Solving</li>
+                </ul>
+            </div>
 
-<section id="experience">
-<h2>Experience</h2>
-<div class="card">
-<h3>Product Design & Production</h3>
-<p><small>Northern CNC &middot; September 2023</small></p>
-<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
-</div>
-<div class="card">
-<h3>Instore Team Member</h3>
-<p><small>Domino's Pizza &middot; August 2021- December 2022</small></p>
-<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
-</div>
-<div class="card">
-<h3>Charity Fundraising</h3>
-<p><small>National Citizenship Service &middot; Summer 2019</small></p>
-<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
-</div>
-<div class="card">
-<h3>Piano Accompanist</h3>
-<p><small>Local Choir &middot; September 2018 - March 2019</small></p>
-<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
-</div>
-</section>
+            <div class="skill-group">
+                <h3>Communication</h3>
+                <ul class="tags">
+                    <li>Spoken and Written Communication</li>
+                    <li>French (B1)</li>
+                    <li>German (A2)</li>
+                </ul>
+            </div>
 
-<section id="education">
-<h2>Education</h2>
-<div class="card">
-<h3>MSc Transport Planning (ongoing)</h3>
-<p><small>University of Westminster &middot; 2026 - 2027</small></p>
-<p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
-</div>
-<div class="card">
-<h3>BEng Electrical and Electronic Engineering</h3>
-<p><small>Imperial College London &middot; 2023 - 2026</small></p>
-<p>Achieved an Upper Second Class Honours.</p>
-</div>
-</section>
+            <div class="skill-group">
+                <h3>Creative</h3>
+                <ul class="tags">
+                    <li>Attention to Detail</li>
+                    <li>Photography</li>
+                    <li>Piano</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Analysing London's Train Network</h3>
+                    <p>[The question you asked, the data you used, your method, and what you found or recommended.]</p>
+                    <p><small>
+                            <a href="docs/urop-poster.pdf" target="_blank" rel="noopener"
+                                style="color:var(--accent)">View the poster (PDF)</a>
+                        </small></p>
+                </article>
+                <article class="card">
+                    <h3>Creating a Chess Engine for Endgame Positions</h3>
+                    <p>[Project title, the problem you tackled, your approach, and your main result.]</p>
+                    <p><small>
+                            <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener"
+                                style="color:var(--accent)">Read the report (PDF)</a> &middot;
+                            <a href="docs/fyp-poster.pdf" target="_blank" rel="noopener"
+                                style="color:var(--accent)">View the poster (PDF)</a>
+                        </small></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="card">
+                <h3>Product Design & Production</h3>
+                <p><small>Northern CNC &middot; September 2023</small></p>
+                <p>This role required a mix of skills, carrying out a variety of activities. It included things like
+                    manual handiwork, operating laser cutters and mechanical saws safely, admin and organisational
+                    tasks, and assembling products. This involved lots of attention to detail, problem solving and
+                    technical skills.</p>
+            </div>
+            <div class="card">
+                <h3>Teaching Assistant</h3>
+                <p><small>Callerton Academy &middot; June 2023</small></p>
+                <p>Here I did a week placement as a teaching assistant at a local middle school. We had to help the kids
+                    with their work, answer their questions, carry out tasks given by the teachers and conduct ourselves
+                    in a professional environment.</p>
+            </div>
+            <div class="card">
+                <h3>Instore Team Member</h3>
+                <p><small>Domino's Pizza &middot; August 2021 - December 2022</small></p>
+                <p>In this role I was required to make the pizzas, take customers' orders, clean at the end of the
+                    night, and carry out other tasks as required by my manager. This required lots of teamwork, and
+                    working under time pressure.</p>
+            </div>
+            <div class="card">
+                <h3>Charity Fundraising</h3>
+                <p><small>National Citizenship Service &middot; Summer 2021</small></p>
+                <p>I participated in a group fundraising activity over two weeks in the summer to raise money for our
+                    chosen charity, Mind. In
+                    total we raised over £1000 in the two weeks!</p>
+            </div>
+            <div class="card">
+                <h3>Piano Accompanist</h3>
+                <p><small>Local Choir &middot; September 2019 - March 2020</small></p>
+                <p>I worked for a few months playing piano to accompany a local choir. This involved learning a lot of
+                    pieces in a short time, and my work culminated in a successful concert.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>MSc Transport Planning (ongoing)</h3>
+                <p><small>University of Westminster &middot; 2026 - 2027</small></p>
+                <p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
+            </div>
+            <div class="card">
+                <h3>BEng Electrical and Electronic Engineering</h3>
+                <p><small>Imperial College London &middot; 2023 - 2026</small></p>
+                <p>Achieved an Upper Second Class Honours.</p>
+            </div>
+            <div class="card">
+                <h3>A levels</h3>
+                <p><small>Gosforth Academy &middot; 2021 - 2023</small></p>
+                <p>A*, A*, A*, A in Maths, Further Maths, Physics and Music respectively.</p>
+            </div>
+            <div class="card">
+                <h3>Music Qualifications</h3>
+                <p><small>ABRSM</small></p>
+                <p>Distinction in my ARSM diploma, along with a distinction in grade 8 Piano, Clarinet and Music Theory.
+                </p>
+            </div>
+        </section>
 
 
-<section id="photography">
-<h2>Photography</h2>
-<p>In my free time, I like to travel to different parts of London and do photography at or near each of the tube stations. I also do lots of photography when I travel around Europe. My photos consist mostly of birds, architecture, and landscapes.</p>
-<div class="photos">
-<div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div><div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div><div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
-<div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div><div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div><div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
-</div>
-</section>
+        <section id="photography">
+            <h2>Photography</h2>
+            <p>In my free time, I like to travel to different parts of London and do photography at or near each of the
+                tube stations. I also do lots of photography when I travel around Europe. My photos consist mostly of
+                birds, architecture, and landscapes.</p>
+            <div class="photos">
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="Describe the photo"></div>
+            </div>
+        </section>
 
 
-<section id="contact">
-<h2>Contact</h2>
-<p>Open to opportunities and conversations. The best way to reach me is by email at dan1234rhodes@gmail.com.</p>
-<a class="btn alt" href="https://www.linkedin.com/in/daniel-rhodes-ab9b9b262">LinkedIn</a><a class="btn alt" href="https://github.com/danrhodes7">GitHub</a>
-</section>
-</main>
-<footer>&copy; Daniel Rhodes</footer>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Open to opportunities and conversations. The best way to reach me is by email at <a
+                    href="mailto:dan1234rhodes@gmail.com">dan1234rhodes@gmail.com</a>.</p>
+            <a class="btn alt" href="https://www.linkedin.com/in/daniel-rhodes-ab9b9b262">LinkedIn</a><a class="btn alt"
+                href="https://github.com/danrhodes7">GitHub</a>
+        </section>
+    </main>
+    <footer>&copy; Daniel Rhodes</footer>
 </body>
+
 </html>
