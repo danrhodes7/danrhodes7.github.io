@@ -13,6 +13,7 @@
             --card: #fff;
             --line: #e4e4de;
             --accent: #1f5eff;
+            --btn-fg: #fff;
             box-sizing: border-box;
             padding-top: env(safe-area-inset-top, 0px);
             padding-bottom: env(safe-area-inset-bottom, 0px)
@@ -25,7 +26,8 @@
                 --muted: #9a9a92;
                 --card: #1b1b19;
                 --line: #2c2c29;
-                --accent: #7aa2ff
+                --accent: #7aa2ff;
+                --btn-fg: #0b0b0a
             }
         }
 
@@ -35,7 +37,8 @@
             --muted: #9a9a92;
             --card: #1b1b19;
             --line: #2c2c29;
-            --accent: #7aa2ff
+            --accent: #7aa2ff;
+            --btn-fg: #0b0b0a
         }
 
         html {
@@ -52,6 +55,10 @@
             background: var(--bg);
             color: var(--fg);
             font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif
+        }
+
+        a {
+            color: var(--accent)
         }
 
         nav {
@@ -114,7 +121,7 @@
             padding: 10px 18px;
             border-radius: 8px;
             background: var(--accent);
-            color: #fff;
+            color: var(--btn-fg);
             text-decoration: none;
             font-size: 15px
         }
@@ -123,6 +130,19 @@
             background: transparent;
             color: var(--fg);
             border: 1px solid var(--line)
+        }
+
+        .skill-group {
+            margin-bottom: 16px
+        }
+
+        .skill-group h3 {
+            margin: 0 0 8px;
+            font-size: .85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--muted)
         }
 
         .tags {
@@ -162,6 +182,11 @@
 
         .card small {
             color: var(--muted)
+        }
+
+        #experience .card,
+        #education .card {
+            margin-bottom: 14px
         }
 
         .photos {
@@ -204,11 +229,11 @@
     <main>
         <header>
             <h1>I am Daniel Rhodes, a public transport enthusiast.</h1>
-            <p class="lead">I am currently studying Transport Planning, after having recently graduated from Electrical Engineering. 
+            <p class="lead">I am currently studying Transport Planning, after having recently graduated from Electrical Engineering.
                 I am curious, driven by understanding how things work, and by the challenge of designing better cities for everyone.
             </p>
-            <a style="color: black" class="btn" href="#projects">See my work</a><a style="color: black" class="btn"
-                href="#contact">Get in touch</a>
+            <a class="btn" href="#projects">See my work</a>
+            <a class="btn" href="#contact">Get in touch</a>
             <p style="margin-top:14px"><a class="btn alt" href="docs/daniel-rhodes-cv.pdf" target="_blank"
                     rel="noopener">Check out my CV! (PDF)</a></p>
         </header>
@@ -226,27 +251,27 @@
                     <li>Python</li>
                     <li>C++</li>
                     <li>MATLAB</li>
-                    <li>html</li>
+                    <li>HTML</li>
                     <li>Excel</li>
                     <li>Data analysis</li>
                     <li>Mathematics</li>
-                    <li>Problem Solving</li>
+                    <li>Problem solving</li>
                 </ul>
             </div>
 
             <div class="skill-group">
                 <h3>Communication</h3>
                 <ul class="tags">
-                    <li>Spoken and Written Communication</li>
+                    <li>Spoken and written communication</li>
                     <li>French (B1)</li>
                     <li>German (A2)</li>
                 </ul>
             </div>
 
             <div class="skill-group">
-                <h3>Creative</h3>
+                <h3>Personal</h3>
                 <ul class="tags">
-                    <li>Attention to Detail</li>
+                    <li>Attention to detail</li>
                     <li>Photography</li>
                     <li>Piano</li>
                 </ul>
@@ -260,18 +285,15 @@
                     <h3>Analysing London's Train Network</h3>
                     <p>[The question you asked, the data you used, your method, and what you found or recommended.]</p>
                     <p><small>
-                            <a href="docs/urop-poster.pdf" target="_blank" rel="noopener"
-                                style="color:var(--accent)">View the poster (PDF)</a>
+                            <a href="docs/urop-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
                         </small></p>
                 </article>
                 <article class="card">
                     <h3>Creating a Chess Engine for Endgame Positions</h3>
                     <p>[Project title, the problem you tackled, your approach, and your main result.]</p>
                     <p><small>
-                            <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener"
-                                style="color:var(--accent)">Read the report (PDF)</a> &middot;
-                            <a href="docs/fyp-poster.pdf" target="_blank" rel="noopener"
-                                style="color:var(--accent)">View the poster (PDF)</a>
+                            <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a> &middot;
+                            <a href="docs/fyp-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
                         </small></p>
                 </article>
             </div>
@@ -280,7 +302,7 @@
         <section id="experience">
             <h2>Work Experience</h2>
             <div class="card">
-                <h3>Product Design & Production</h3>
+                <h3>Product Design &amp; Production</h3>
                 <p><small>Northern CNC &middot; September 2023</small></p>
                 <p>This role required a mix of skills, carrying out a variety of activities. It included things like
                     manual handiwork, operating laser cutters and mechanical saws safely, admin and organisational
@@ -305,8 +327,7 @@
                 <h3>Charity Fundraising</h3>
                 <p><small>National Citizenship Service &middot; Summer 2021</small></p>
                 <p>I participated in a group fundraising activity over two weeks in the summer to raise money for our
-                    chosen charity, Mind. In
-                    total we raised over £1000 in the two weeks!</p>
+                    chosen charity, Mind. In total we raised over £1000 in the two weeks!</p>
             </div>
             <div class="card">
                 <h3>Piano Accompanist</h3>
@@ -326,9 +347,9 @@
             <div class="card">
                 <h3>BEng Electrical and Electronic Engineering</h3>
                 <p><small>Imperial College London &middot; 2023 - 2026</small></p>
-                <p>Achieved an Upper Second Class Honours. This degree developped many of my skills. 
-                    There were many technical modules, that required extensive use of programming and mathematical skills.
-                    I also took part in two group projects, that required working well in a team, writing reports, and meeting strict deadlines. </p>
+                <p>Achieved an Upper Second Class Honours. This degree developed many of my skills.
+                    There were many technical modules that required extensive use of programming and mathematical skills.
+                    I also took part in two group projects that required working well in a team, writing reports, and meeting strict deadlines.</p>
             </div>
             <div class="card">
                 <h3>A levels</h3>
@@ -343,36 +364,34 @@
             </div>
         </section>
 
-
         <section id="photography">
             <h2>Photography</h2>
             <p>In my free time, I like to travel to different parts of London and do photography at or near each of the
                 tube stations. I also do lots of photography when I travel around Europe. My photos consist mostly of
                 birds (especially pigeons), architecture, and landscapes.</p>
             <div class="photos">
-                <div class="photo"><img src="photos/photo-1.jpg"></div>
-                <div class="photo"><img src="photos/photo-2.jpg"></div>
-                <div class="photo"><img src="photos/photo-3.jpg"></div>
-                <div class="photo"><img src="photos/photo-4.jpg"></div>
-                <div class="photo"><img src="photos/photo-5.jpg"></div>
-                <div class="photo"><img src="photos/photo-6.jpg"></div>
-                <div class="photo"><img src="photos/photo-7.jpg"></div>
-                <div class="photo"><img src="photos/photo-8.jpg"></div>
-                <div class="photo"><img src="photos/photo-9.jpg"></div>
-                <div class="photo"><img src="photos/photo-10.jpg"></div>
-                <div class="photo"><img src="photos/photo-11.jpg"></div>
-                <div class="photo"><img src="photos/photo-12.jpg"></div>
-                <p>You can find more of my best work by clicking the button below.</p>
-                <a class="btn alt" href="https://photos.app.goo.gl/uLD94H3gBvbkPMGD6" target="_blank"
-                    rel="noopener">More of my work!</a>
+                <div class="photo"><img src="photos/photo-1.jpg" alt="[Describe photo 1]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-2.jpg" alt="[Describe photo 2]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-3.jpg" alt="[Describe photo 3]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-4.jpg" alt="[Describe photo 4]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-5.jpg" alt="[Describe photo 5]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-6.jpg" alt="[Describe photo 6]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-7.jpg" alt="[Describe photo 7]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-8.jpg" alt="[Describe photo 8]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-9.jpg" alt="[Describe photo 9]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-10.jpg" alt="[Describe photo 10]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-11.jpg" alt="[Describe photo 11]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-12.jpg" alt="[Describe photo 12]" loading="lazy"></div>
             </div>
+            <p style="margin-top:16px">You can find more of my best work by clicking the button below.</p>
+            <a class="btn alt" href="https://photos.app.goo.gl/uLD94H3gBvbkPMGD6" target="_blank"
+                rel="noopener">More of my work!</a>
         </section>
-
 
         <section id="contact">
             <h2>Contact</h2>
             <p>Open to opportunities and conversations. The best way to reach me is by email at <a
-                    href="mailto:dan1234rhodes@gmail.com" target="_blank" rel="noopener">dan1234rhodes@gmail.com</a>.
+                    href="mailto:dan1234rhodes@gmail.com">dan1234rhodes@gmail.com</a>.
             </p>
             <a class="btn alt" href="https://www.linkedin.com/in/daniel-rhodes-ab9b9b262" target="_blank"
                 rel="noopener">LinkedIn</a><a class="btn alt" href="https://github.com/danrhodes7" target="_blank"
