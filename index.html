@@ -282,23 +282,46 @@
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="grid">
-                <article class="card">
-                    <h3>Analysing London's Train Network</h3>
-                    <p>[The question you asked, the data you used, your method, and what you found or recommended.]</p>
-                    <p><small>
-                            <a href="docs/urop-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
-                        </small></p>
-                </article>
-                <article class="card">
-                    <h3>Creating a Chess Engine for Endgame Positions</h3>
-                    <p>[Project title, the problem you tackled, your approach, and your main result.]</p>
-                    <p><small>
-                            <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a>
-                            &middot;
-                            <a href="docs/fyp-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
-                        </small></p>
-                </article>
+            <div class="card">
+                <h3>Analysing London's Train Network</h3>
+                <p>This project ties together broader urban planning experience with a more numerical approach.</p>
+                <p><small>
+                        <a href="docs/urop-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
+                    </small></p>
+            </div>
+            <div class="card">
+                <h3>Creating a Chess Engine for Fortress Positions</h3>
+                <p>For my final year project at Imperial College, I created a chess engine specifically focused on
+                    fortress positions, where one side has a material advantage but cannot force a win. These types of
+                    positions are typically difficult for chess engines, as it is easy for them to miss a
+                    move like a sacrifice, which initially looks bad but gives an advantage in the long run.
+                    The engine has three stages as follows:
+                    1 - Exhaustively search for a few moves (3-7, tuneable in the interface)
+                    2 - Evaluates further with alpha-beta pruning and the rising evaluation method
+                    3 - Heuristic analysis
+                    In more detail:
+                    Exhaustive search - The engine exhaustively searches through the first few moves, to ensure that no
+                    possible breakthrough move (sacrifice or otherwise counter-intuitve move) is missed, and that engine
+                    does not prune away less promising moves too early.
+                    Evaluate further - The engine starts from every possible position found through the exhaustive
+                    search and runs a pruning search to find the most promising lines. It then checks the evaluation as
+                    the search goes deeper. If the evaluation stays flat then a fortress is assumed.
+                    Whereas, if the evaluation keeps rising, then a breakthrough is assumed. The engine then examines
+                    these lines with the next stage to find winning line.
+                    Heuristic analysis - The engine analyses the resulting lines with heuristics. If a breakthrough move
+                    is found, the engine chooses heuristics adapted from Stockfish like material advantage, piece
+                    activity and tactics, and tries to find a winning line. If there is no breakthrough move found, the
+                    engine falls back to fortress heuristics coded myself, and holds the draw.
+
+                    This project was coded entirely in C++.
+
+                    You can read more about the project in the report and poster below!
+                </p>
+                <p><small>
+                        <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a>
+                        &middot;
+                        <a href="docs/fyp-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
+                    </small></p>
             </div>
         </section>
 
@@ -345,14 +368,19 @@
             <div class="card">
                 <h3>MSc Transport Planning (ongoing)</h3>
                 <p><small>University of Westminster &middot; 2026 - 2027</small></p>
-                <p>[Relevant modules, dissertation topic, grade if you want to include it.]</p>
+                <p>I am particularly looking forward to our module on Streets, Places and Active Transport, as it will
+                    teach us much about how to design more liveable and attractive places for everyone. I am also
+                    looking forward to Land Use, Planning and Transport, as I am keen to learn more about the field of
+                    Urban Planning.</p>
             </div>
             <div class="card">
                 <h3>BEng Electrical and Electronic Engineering</h3>
                 <p><small>Imperial College London &middot; 2023 - 2026</small></p>
-                <p>Achieved an Upper Second Class Honours. This degree developed many of my skills.
+                <p>Achieved an Upper Second Class Honours.
                     There were many technical modules that required extensive use of programming and mathematical
-                    skills.
+                    skills. My favourite module was Biomedical Electronics, as it put into application many of the
+                    theoretical things we had learnt earlier in the degree, including uses for analogue circuits and
+                    mathmatical skills.
                     I also took part in two group projects that required working well in a team, writing reports, and
                     meeting strict deadlines.</p>
             </div>
@@ -375,20 +403,20 @@
                 tube stations. I also do lots of photography when I travel around Europe. My photos consist mostly of
                 birds (especially pigeons), architecture, and landscapes.
                 A long term project of mine is to visit every tube station in London, and post photohgraphy of the
-                station itself, along with the area around it. I post about this on my Instagram page.</p>
+                station itself, along with the area around it. I put this on my Instagram page.</p>
             <div class="photos">
-                <div class="photo"><img src="photos/photo-1.jpg" alt="[Describe photo 1]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-2.JPG" alt="[Describe photo 2]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-3.JPG" alt="[Describe photo 3]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-4.JPG" alt="[Describe photo 4]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-5.JPG" alt="[Describe photo 5]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-6.JPG" alt="[Describe photo 6]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-7.JPG" alt="[Describe photo 7]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-8.JPG" alt="[Describe photo 8]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-9.jpg" alt="[Describe photo 9]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-10.JPG" alt="[Describe photo 10]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-11.JPG" alt="[Describe photo 11]" loading="lazy"></div>
-                <div class="photo"><img src="photos/photo-12.JPG" alt="[Describe photo 12]" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-1.jpg" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-2.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-3.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-4.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-5.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-6.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-7.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-8.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-9.jpg" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-10.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-11.JPG" loading="lazy"></div>
+                <div class="photo"><img src="photos/photo-12.JPG" loading="lazy"></div>
             </div>
             <p style="margin-top:16px">You can find more of my work below.</p>
             <a class="btn alt" href="https://photos.app.goo.gl/uLD94H3gBvbkPMGD6" target="_blank" rel="noopener">More of
@@ -399,7 +427,7 @@
 
         <section id="contact">
             <h2>Contact</h2>
-            <p>Open to opportunities and conversations. The best way to reach me is by email at <a
+            <p>I am open to opportunities and conversations. The best way to reach me is by email at <a
                     href="mailto:dan1234rhodes@gmail.com">dan1234rhodes@gmail.com</a>.
             </p>
             <a class="btn alt" href="https://www.linkedin.com/in/daniel-rhodes-ab9b9b262" target="_blank"
