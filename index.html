@@ -220,6 +220,49 @@
             color: var(--muted);
             font-size: 14px
         }
+
+        #projects .card {
+            margin-bottom: 14px
+        }
+
+        .card h4 {
+            margin: 18px 0 6px;
+            font-size: 1rem
+        }
+
+        .card ul {
+            margin: 0 0 12px;
+            padding-left: 20px
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 12px 0
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px
+        }
+
+        caption {
+            text-align: left;
+            color: var(--muted);
+            font-size: 13px;
+            padding-bottom: 6px
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--line)
+        }
+
+        th {
+            font-weight: 600
+        }
     </style>
 </head>
 
@@ -282,41 +325,104 @@
 
         <section id="projects">
             <h2>Projects</h2>
+
             <div class="card">
                 <h3>Analysing London's Train Network</h3>
-                <p>This project ties together broader urban planning experience with a more numerical approach.</p>
+                <p>This project combines urban planning questions with a numerical approach, coded in Python. It had
+                    three parts.</p>
+
+                <h4>1. Data analysis</h4>
+                <p>I analysed population density, population per borough, transport density and the number of stations
+                    per borough to find areas with large populations but poor access to public transport. This showed
+                    where improvements and new connections are most needed.</p>
+
+                <h4>2. Graph theory</h4>
+                <p>I modelled the rail network as a graph to measure how well stations connect to each other. There are
+                    several metrics for this, including betweenness centrality and average path length. I focused on
+                    k-edge connectivity.</p>
+                <p>I implemented k-edge augmentation. In simple terms, the algorithm finds every dead-end line and
+                    connects it to other lines, so that every station has at least k separate routes to every other
+                    station. If one line goes down, there is always a second route. The new connections are chosen to
+                    keep their total length as short as possible.</p>
+                <p>I tested several scenarios, including adding the Superloop, changing the number of zones, and
+                    including proposed lines such as the West London Orbital and the DLR extension to Thamesmead. Some
+                    of the results are below.</p>
+
+                <div class="table-wrap">
+                    <table>
+                        <caption>k-edge augmentation results (new links needed, total new track length)</caption>
+                        <thead>
+                            <tr>
+                                <th>Scenario</th>
+                                <th>k = 2</th>
+                                <th>k = 3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zones 1-6</td>
+                                <td>37 links, 114 km</td>
+                                <td>298 links, 365 km</td>
+                            </tr>
+                            <tr>
+                                <td>Zones 1-6 with Superloop</td>
+                                <td>38 links, 104 km</td>
+                                <td>297 links, 359 km</td>
+                            </tr>
+                            <tr>
+                                <td>Zones 1-6 with proposed lines</td>
+                                <td>37 links, 107 km</td>
+                                <td>292 links, 355 km</td>
+                            </tr>
+                            <tr>
+                                <td>Zones 1-6 with proposed lines and Superloop</td>
+                                <td>36 links, 96 km</td>
+                                <td>287 links, 345 km</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Adding the Superloop and the proposed lines reduces the amount of new track needed to connect the
+                    dead ends.</p>
+
+                <h4>3. Random and targeted station removal</h4>
+                <p>I tested how well the network withstands failures, both before and after augmentation. Random
+                    removal simulates incidents such as line failures, fires or animals on the tracks. Targeted removal
+                    takes out the best-connected stations first, simulating events such as targeted strike action. The
+                    augmented networks performed significantly better under both.</p>
+
+                <p>Overall, the project shows that even small increases in connectivity can greatly improve a
+                    network's resilience.</p>
                 <p><small>
                         <a href="docs/urop-poster.pdf" target="_blank" rel="noopener">View the poster (PDF)</a>
                     </small></p>
             </div>
+
             <div class="card">
                 <h3>Creating a Chess Engine for Fortress Positions</h3>
-                <p>For my final year project at Imperial College, I created a chess engine specifically focused on
-                    fortress positions, where one side has a material advantage but cannot force a win. These types of
-                    positions are typically difficult for chess engines, as it is easy for them to miss a
-                    move like a sacrifice, which initially looks bad but gives an advantage in the long run.
-                    The engine has three stages as follows:
-                    1 - Exhaustively search for a few moves (3-7, tuneable in the interface)
-                    2 - Evaluates further with alpha-beta pruning and the rising evaluation method
-                    3 - Heuristic analysis
-                    In more detail:
-                    Exhaustive search - The engine exhaustively searches through the first few moves, to ensure that no
-                    possible breakthrough move (sacrifice or otherwise counter-intuitve move) is missed, and that engine
-                    does not prune away less promising moves too early.
-                    Evaluate further - The engine starts from every possible position found through the exhaustive
-                    search and runs a pruning search to find the most promising lines. It then checks the evaluation as
-                    the search goes deeper. If the evaluation stays flat then a fortress is assumed.
-                    Whereas, if the evaluation keeps rising, then a breakthrough is assumed. The engine then examines
-                    these lines with the next stage to find winning line.
-                    Heuristic analysis - The engine analyses the resulting lines with heuristics. If a breakthrough move
-                    is found, the engine chooses heuristics adapted from Stockfish like material advantage, piece
-                    activity and tactics, and tries to find a winning line. If there is no breakthrough move found, the
-                    engine falls back to fortress heuristics coded myself, and holds the draw.
+                <p>For my final year project at Imperial College London, I created a chess engine focused on fortress
+                    positions, where one side has a material advantage but cannot force a win. These positions are
+                    difficult for chess engines, which can easily miss a move such as a sacrifice that looks bad at
+                    first but gives an advantage in the long run.</p>
+                <p>The engine works in three stages:</p>
 
-                    This project was coded entirely in C++.
+                <h4>1. Exhaustive search</h4>
+                <p>The engine searches every possible line for the first few moves (3 to 7, adjustable in the
+                    interface). This ensures that no breakthrough move, such as a sacrifice or other counter-intuitive
+                    move, is missed, and that promising lines are not pruned away too early.</p>
 
-                    You can read more about the project in the report and poster below!
-                </p>
+                <h4>2. Further evaluation</h4>
+                <p>From each position found, the engine runs an alpha-beta pruning search to find the most promising
+                    lines, and tracks how the evaluation changes as the search goes deeper. If the evaluation stays
+                    flat, a fortress is assumed. If it keeps rising, a breakthrough is assumed. These lines are then
+                    passed to the final stage.</p>
+
+                <h4>3. Heuristic analysis</h4>
+                <p>If a breakthrough is found, the engine uses heuristics adapted from Stockfish, such as material
+                    advantage, piece activity and tactics, to find a winning line. If not, it falls back on fortress
+                    heuristics that I wrote myself, and holds the draw.</p>
+
+                <p>The project was written entirely in C++. The report and poster below give more detail.</p>
                 <p><small>
                         <a href="docs/fyp-final-report.pdf" target="_blank" rel="noopener">Read the report (PDF)</a>
                         &middot;
@@ -380,7 +486,7 @@
                     There were many technical modules that required extensive use of programming and mathematical
                     skills. My favourite module was Biomedical Electronics, as it put into application many of the
                     theoretical things we had learnt earlier in the degree, including uses for analogue circuits and
-                    mathmatical skills.
+                    mathmatical skills.<br>
                     I also took part in two group projects that required working well in a team, writing reports, and
                     meeting strict deadlines.</p>
             </div>
@@ -401,8 +507,8 @@
             <h2>Photography</h2>
             <p>In my free time, I like to travel to different parts of London and do photography at or near each of the
                 tube stations. I also do lots of photography when I travel around Europe. My photos consist mostly of
-                birds (especially pigeons), architecture, and landscapes.
-                A long term project of mine is to visit every tube station in London, and post photohgraphy of the
+                birds (especially pigeons), architecture, and landscapes.<br>
+                A long term project of mine is to visit every tube station in London, and post photography of the
                 station itself, along with the area around it. I put this on my Instagram page.</p>
             <div class="photos">
                 <div class="photo"><img src="photos/photo-1.jpg" loading="lazy"></div>
